@@ -5,4 +5,24 @@
 // One new immigrant every 45 seconds
 // Write a program to display the population for each of the next five years. Assume the current population is 312032486 and one year has 365 days.
 
+#include <iostream>
 
+using namespace std;
+
+int main(){
+    long long currentPopulation = 312032486;
+    int secondsInAYear = 365 * 24 * 60 * 60;
+    int births = secondsInAYear / 7;
+    
+    int deaths = secondsInAYear / 13;
+    
+    int immigrants = secondsInAYear / 45;
+    
+
+    for (int year = 1; year <= 5; year++) {
+        currentPopulation = currentPopulation + births - deaths + immigrants;
+        cout << "Population after " << year << " year(s): " << currentPopulation << endl;
+    }
+
+    return 0;
+}
